@@ -1,0 +1,202 @@
+:root {
+  /* Primary Colors */
+  --color-primary: #0059bb;
+  --color-primary-container: #0070ea;
+  --color-on-primary: #ffffff;
+
+  /* Secondary Colors */
+  --color-secondary: #006a64;
+  --color-secondary-container: #77f4e8;
+  --color-on-secondary-container: #006f68;
+
+  /* Tertiary Colors */
+  --color-tertiary: #9e3d00;
+  --color-tertiary-container: #c64f00;
+
+  /* Neutral & Surfaces */
+  --color-surface: #f4fafd;
+  --color-surface-container-low: #eef5f7;
+  --color-surface-container-high: #dee8ff; /* Derived from secondary container mapping */
+  --color-surface-container-highest: #dde4e6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-on-surface: #161d1f;
+  --color-outline-variant: #c1c6d7;
+
+  /* Errors */
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Typography */
+  --font-headlines: 'Manrope', sans-serif;
+  --font-body: 'Public Sans', sans-serif;
+
+  /* Layout & Shadows */
+  --shadow-medical-mist: 0 12px 32px -4px rgba(22, 29, 31, 0.06);
+  --border-radius-standard: 12px;
+  --border-radius-large: 24px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  /* Baseline grid support (4px) */
+  line-height: 1.5; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headlines);
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+/* Fundamental utilities based on design system */
+.clinical-card {
+  background-color: var(--color-surface-container-lowest);
+  border-radius: var(--border-radius-standard);
+  padding: 32px;
+  box-shadow: var(--shadow-medical-mist);
+}
+
+.clinical-section {
+  background-color: var(--color-surface-container-low);
+  padding: 64px 32px;
+}
+
+.clinical-btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+  color: var(--color-on-primary);
+  border-radius: 9999px;
+  border: none;
+  padding: 12px 24px;
+  font-family: var(--font-headlines);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clinical-btn-primary:hover:not(:disabled) {
+  filter: brightness(1.1);
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.2);
+}
+
+.clinical-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.clinical-btn-secondary {
+  background: var(--color-surface-container-high);
+  color: var(--color-primary);
+  border-radius: 9999px;
+  border: none;
+  padding: 12px 24px;
+  font-family: var(--font-headlines);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clinical-btn-secondary:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.clinical-btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.clinical-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.clinical-label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-on-surface);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.clinical-input {
+  background-color: var(--color-surface-container-low);
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 12px 12px 0 0;
+  padding: 14px 16px;
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  outline: none;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.clinical-input:focus {
+  background-color: var(--color-surface-container-highest);
+  border-bottom-color: var(--color-primary);
+}
+
+.clinical-input.error {
+  border-bottom-color: var(--color-error);
+}
+
+.clinical-error-text {
+  color: var(--color-error);
+  font-size: 0.75rem;
+  margin-top: 4px;
+  font-family: var(--font-body);
+}
+
+.clinical-banner-error {
+  background-color: var(--color-error-container);
+  color: var(--color-on-error-container);
+  padding: 16px;
+  border-radius: var(--border-radius-standard);
+  margin-bottom: 24px;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.clinical-banner-success {
+  background-color: var(--color-secondary-container);
+  color: var(--color-on-secondary-container);
+  padding: 16px;
+  border-radius: var(--border-radius-standard);
+  margin-bottom: 24px;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.clinical-chip {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.clinical-chip-scheduled {
+  background-color: var(--color-secondary-container);
+  color: var(--color-on-secondary-container);
+}
+
+.clinical-chip-cancelled {
+  background-color: var(--color-error-container);
+  color: var(--color-on-error-container);
+}
+
+.clinical-chip-completed {
+  background-color: var(--color-surface-container-high);
+  color: var(--color-on-surface);
+}
